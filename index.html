@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crave House | Fast Food & Desserts</title>
+<meta name="description" content="Crave House - Burgers, Pizza, Shawarma, Shakes, Ice Cream, Sweets and more.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff;
+  color:#171717;
+  line-height:1.6;
+}
+a{text-decoration:none;color:inherit}
+img{width:100%;display:block}
+.container{width:92%;max-width:1200px;margin:auto}
+
+/* NAVBAR */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+.nav{
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+.logo span{color:#e63920}
+nav{
+  display:flex;
+  gap:28px;
+}
+nav a{
+  font-size:14px;
+  font-weight:700;
+  color:#444;
+}
+nav a:hover{color:#e63920}
+.order-btn{
+  background:#e63920;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:8px;
+  font-weight:800;
+  font-size:14px;
+}
+
+/* HERO */
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  color:white;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,.25)),
+    url("https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=2000&q=85")
+    center/cover;
+}
+.hero-content{max-width:700px;padding:90px 0}
+.tag{
+  color:#ffcf4a;
+  font-weight:900;
+  letter-spacing:3px;
+  font-size:13px;
+  margin-bottom:15px;
+}
+.hero h1{
+  font-size:clamp(45px,7vw,78px);
+  line-height:1;
+  margin-bottom:25px;
+}
+.hero p{
+  color:#eee;
+  font-size:18px;
+  max-width:600px;
+}
+.buttons{
+  display:flex;
+  gap:14px;
+  margin-top:32px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:14px 24px;
+  border-radius:8px;
+  font-weight:800;
+}
+.red{background:#e63920;color:#fff}
+.yellow{background:#ffca28;color:#171717}
+.outline{border:1px solid #fff;color:#fff}
+.btn:hover{transform:translateY(-2px)}
+
+/* QUICK INFO */
+.quick{
+  background:#171717;
+  color:white;
+}
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.quick-item{
+  padding:25px 15px;
+  text-align:center;
+  border-right:1px solid #333;
+}
+.quick-item:last-child{border:0}
+.quick-item strong{display:block;font-size:18px}
+.quick-item span{font-size:12px;color:#bbb}
+
+/* GENERAL */
+section{padding:90px 0}
+.heading{
+  text-align:center;
+  max-width:700px;
+  margin:0 auto 45px;
+}
+.heading small{
+  color:#e63920;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.heading h2{
+  font-size:44px;
+  line-height:1.1;
+  margin:10px 0 14px;
+}
+.heading p{color:#777}
+
+/* CATEGORIES */
+.categories{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:15px;
+}
+.category{
+  background:#fff7f3;
+  border:1px solid #f2ddd7;
+  padding:25px 10px;
+  text-align:center;
+  border-radius:12px;
+  transition:.25s;
+}
+.category:hover{
+  transform:translateY(-5px);
+  border-color:#e63920;
+}
+.category .emoji{font-size:38px}
+.category h3{font-size:14px;margin-top:8px}
+
+/* MENU */
+.menu-section{background:#f8f8f8}
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.food-card{
+  background:white;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #eee;
+  box-shadow:0 8px 25px rgba(0,0,0,.06);
+  transition:.3s;
+}
+.food-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px rgba(0,0,0,.1);
+}
+.food-img{
+  height:220px;
+  object-fit:cover;
+}
+.food-info{padding:20px}
+.food-info h3{font-size:21px;margin-bottom:6px}
+.food-info p{font-size:13px;color:#777;margin-bottom:15px}
+.food-bottom{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.price{
+  color:#e63920;
+  font-weight:900;
+  font-size:18px;
+}
+.add{
+  background:#171717;
+  color:#fff;
+  border:0;
+  padding:9px 14px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+/* PROMO */
+.promo{
+  background:#e63920;
+  color:white;
+}
+.promo-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+}
+.promo h2{
+  font-size:48px;
+  line-height:1.1;
+  margin:12px 0 18px;
+}
+.promo p{color:#ffe5df}
+.promo-img{
+  height:390px;
+  border-radius:16px;
+  background:
+    url("https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+
+/* BURGERS */
+.dark{background:#171717;color:#fff}
+.dark .heading p{color:#bbb}
+.dark .heading small{color:#ffca28}
+.dark .food-card{color:#171717}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+.about-img{
+  min-height:500px;
+  border-radius:15px;
+  background:
+    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+.about h2{
+  font-size:45px;
+  line-height:1.1;
+  margin:12px 0 20px;
+}
+.about p{color:#707070;margin-bottom:18px}
+.points{margin:25px 0}
+.point{
+  display:flex;
+  gap:12px;
+  margin:12px 0;
+  font-weight:700;
+}
+
+/* TESTIMONIALS */
+.reviews{background:#fff7f3}
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.review{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:12px;
+  padding:28px;
+}
+.stars{color:#f5b400;font-size:20px;margin-bottom:12px}
+.review p{color:#666;font-size:14px;margin-bottom:20px}
+.review strong{font-size:14px}
+
+/* MAP */
+.map-section{background:#f7f7f7}
+.map-box{
+  overflow:hidden;
+  border-radius:15px;
+  height:430px;
+  border:1px solid #ddd;
+}
+.map-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* CONTACT */
+.contact{
+  background:#171717;
+  color:#fff;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+.contact h2{
+  font-size:45px;
+  line-height:1.1;
+  margin:12px 0 18px;
+}
+.contact-intro{color:#bbb}
+.contact-info{margin-top:25px}
+.contact-info p{margin:12px 0;color:#ddd}
+.form{
+  background:#fff;
+  color:#171717;
+  padding:30px;
+  border-radius:14px;
+}
+.form input,.form textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  margin-bottom:12px;
+  font:inherit;
+}
+.form textarea{height:120px;resize:vertical}
+.form button{
+  width:100%;
+  border:0;
+  cursor:pointer;
+  font:inherit;
+}
+
+/* FOOTER */
+footer{
+  background:#0d0d0d;
+  color:#aaa;
+  padding:30px 0;
+}
+.footer{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+.footer strong{color:#fff;font-size:20px}
+
+/* MOBILE */
+@media(max-width:950px){
+  nav{display:none}
+  .categories{grid-template-columns:repeat(3,1fr)}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+  .quick-grid{grid-template-columns:repeat(2,1fr)}
+  .quick-item:nth-child(2){border:0}
+  .about-grid,.promo-grid,.contact-grid{grid-template-columns:1fr}
+  .review-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:600px){
+  .container{width:92%}
+  section{padding:65px 0}
+  .hero{min-height:600px}
+  .hero h1{font-size:45px}
+  .hero p{font-size:16px}
+  .categories{grid-template-columns:repeat(2,1fr)}
+  .menu-grid{grid-template-columns:1fr}
+  .quick-grid{grid-template-columns:1fr 1fr}
+  .quick-item{border-bottom:1px solid #333}
+  .promo h2,.about h2,.contact h2{font-size:36px}
+  .promo-img{height:300px}
+  .about-img{min-height:350px}
+  .map-box{height:350px}
+  .footer{flex-direction:column;text-align:center}
+}
+
+/* TOAST */
+.toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#171717;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:8px;
+  opacity:0;
+  transform:translateY(20px);
+  transition:.3s;
+  z-index:2000;
+}
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">Crave<span>House</span></a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#burgers">Burgers</a>
+      <a href="#about">About</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="order-btn">Order Now</a>
+  </div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-content">
+
+    <div class="tag">FRESH • FAST • DELICIOUS</div>
+
+    <h1>
+      Big Flavours.<br>
+      Fresh Every Day.
+    </h1>
+
+    <p>
+      From loaded burgers and cheesy pizza to juicy shawarma,
+      creamy shakes, ice cream and sweet treats —
+      there's something for everyone at Crave House.
+    </p>
+
+    <div class="buttons">
+      <a href="#menu" class="btn red">Explore Our Menu</a>
+      <a href="#contact" class="btn outline">Order Now</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- QUICK INFO -->
+<section class="quick">
+  <div class="container quick-grid">
+
+    <div class="quick-item">
+      <strong>🍔 Fresh Food</strong>
+      <span>Made to order</span>
+    </div>
+
+    <div class="quick-item">
+      <strong>🚀 Fast Service</strong>
+      <span>Quick & convenient</span>
+    </div>
+
+    <div class="quick-item">
+      <strong>🥤 Fresh Drinks</strong>
+      <span>Shakes & beverages</span>
+    </div>
+
+    <div class="quick-item">
+      <strong>📦 Takeaway</strong>
+      <span>Easy pickup</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CATEGORIES -->
+<section>
+  <div class="container">
+
+    <div class="heading">
+      <small>OUR MENU</small>
+      <h2>Something For Every Craving</h2>
+      <p>
+        Choose from our favourite food categories.
+      </p>
+    </div>
+
+    <div class="categories">
+
+      <a href="#burgers" class="category">
+        <div class="emoji">🍔</div>
+        <h3>Burgers</h3>
+      </a>
+
+      <a href="#pizza" class="category">
+        <div class="emoji">🍕</div>
+        <h3>Pizza</h3>
+      </a>
+
+      <a href="#shawarma" class="category">
+        <div class="emoji">🌯</div>
+        <h3>Shawarma</h3>
+      </a>
+
+      <a href="#shakes" class="category">
+        <div class="emoji">🥤</div>
+        <h3>Shakes</h3>
+      </a>
+
+      <a href="#icecream" class="category">
+        <div class="emoji">🍦</div>
+        <h3>Ice Cream</h3>
+      </a>
+
+      <a href="#sweets" class="category">
+        <div class="emoji">🍰</div>
+        <h3>Sweets</h3>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- BURGERS -->
+<section class="menu-section" id="burgers">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>BURGERS</small>
+      <h2>Our Signature Burgers</h2>
+      <p>Loaded, juicy and made fresh to order.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+          alt="Classic beef burger">
+
+        <div class="food-info">
+          <h3>Classic Beef Burger</h3>
+          <p>Juicy beef patty, fresh lettuce, tomato and signature sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 599</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=900&q=85"
+          alt="Crispy chicken burger">
+
+        <div class="food-info">
+          <h3>Crispy Chicken Burger</h3>
+          <p>Crispy chicken fillet, cheese, lettuce and creamy sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 549</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=900&q=85"
+          alt="Double cheese burger">
+
+        <div class="food-info">
+          <h3>Double Cheese Burger</h3>
+          <p>Two beef patties, double cheese and our special house sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 799</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PIZZA -->
+<section id="pizza">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>PIZZA</small>
+      <h2>Hot & Cheesy Pizza</h2>
+      <p>Freshly baked with generous toppings.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=85"
+          alt="Pepperoni pizza">
+
+        <div class="food-info">
+          <h3>Classic Pepperoni</h3>
+          <p>Cheese, tomato sauce and generous pepperoni.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 1,299</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=900&q=85"
+          alt="Chicken pizza">
+
+        <div class="food-info">
+          <h3>Chicken Fajita</h3>
+          <p>Chicken, peppers, onions, cheese and special seasoning.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 1,399</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=900&q=85"
+          alt="Cheesy pizza">
+
+        <div class="food-info">
+          <h3>Cheese Lovers</h3>
+          <p>Extra cheese, mozzarella and our signature tomato sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 1,199</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SHAWARMA -->
+<section class="menu-section" id="shawarma">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>SHAWARMA</small>
+      <h2>Fresh & Loaded Shawarma</h2>
+      <p>Juicy fillings wrapped with fresh ingredients.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=85"
+          alt="Chicken shawarma">
+
+        <div class="food-info">
+          <h3>Chicken Shawarma</h3>
+          <p>Marinated chicken, fresh vegetables and creamy garlic sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 399</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=900&q=85"
+          alt="Loaded shawarma">
+
+        <div class="food-info">
+          <h3>Loaded Shawarma</h3>
+          <p>Chicken, cheese, fries and special house sauce.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 499</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=900&q=85"
+          alt="Shawarma platter">
+
+        <div class="food-info">
+          <h3>Shawarma Platter</h3>
+          <p>Shawarma slices, fries, salad and signature sauces.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 749</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- PROMO -->
+<section class="promo">
+
+  <div class="container promo-grid">
+
+    <div>
+      <div class="tag">SPECIAL COMBO</div>
+
+      <h2>
+        Burger + Fries + Shake
+      </h2>
+
+      <p>
+        Your favourite combination in one delicious deal.
+        Perfect for lunch, dinner or a quick evening craving.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn yellow">
+          Order This Combo
+        </a>
+      </div>
+    </div>
+
+    <div class="promo-img"></div>
+
+  </div>
+
+</section>
+
+
+<!-- SHAKES -->
+<section id="shakes">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>SHAKES & DRINKS</small>
+      <h2>Thick, Creamy & Delicious</h2>
+      <p>Perfect with your favourite meal.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=900&q=85"
+          alt="Chocolate shake">
+
+        <div class="food-info">
+          <h3>Chocolate Shake</h3>
+          <p>Rich chocolate shake topped with whipped cream.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 349</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=900&q=85"
+          alt="Strawberry shake">
+
+        <div class="food-info">
+          <h3>Strawberry Shake</h3>
+          <p>Creamy strawberry shake made with fresh flavour.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 349</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=900&q=85"
+          alt="Cold coffee">
+
+        <div class="food-info">
+          <h3>Classic Cold Coffee</h3>
+          <p>Chilled creamy coffee with a smooth finish.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 299</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ICE CREAM -->
+<section class="menu-section" id="icecream">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>ICE CREAM</small>
+      <h2>Sweeten Your Day</h2>
+      <p>Cool, creamy and made for dessert lovers.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=900&q=85"
+          alt="Ice cream">
+
+        <div class="food-info">
+          <h3>Chocolate Sundae</h3>
+          <p>Chocolate ice cream with sauce and delicious toppings.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 299</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=900&q=85"
+          alt="Vanilla ice cream">
+
+        <div class="food-info">
+          <h3>Vanilla Delight</h3>
+          <p>Classic vanilla ice cream with your choice of toppings.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 249</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?auto=format&fit=crop&w=900&q=85"
+          alt="Strawberry ice cream">
+
+        <div class="food-info">
+          <h3>Strawberry Scoop</h3>
+          <p>Fresh strawberry flavour with creamy ice cream.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 249</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- SWEETS -->
+<section id="sweets">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>SWEETS</small>
+      <h2>Something Sweet</h2>
+      <p>Finish your meal with one of our delicious desserts.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=85"
+          alt="Donuts">
+
+        <div class="food-info">
+          <h3>Chocolate Donuts</h3>
+          <p>Soft donuts covered with rich chocolate glaze.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 299</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85"
+          alt="Chocolate cake">
+
+        <div class="food-info">
+          <h3>Chocolate Cake</h3>
+          <p>Rich and moist chocolate cake with creamy frosting.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 399</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=900&q=85"
+          alt="Cupcakes">
+
+        <div class="food-info">
+          <h3>Fresh Cupcakes</h3>
+          <p>Soft cupcakes topped with creamy frosting.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 249</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- DRINKS -->
+<section class="dark">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>BEVERAGES</small>
+      <h2>Cold Drinks</h2>
+      <p>Chilled drinks to complete your meal.</p>
+    </div>
+
+    <div class="menu-grid">
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?auto=format&fit=crop&w=900&q=85"
+          alt="Soft drink">
+
+        <div class="food-info">
+          <h3>Chilled Soft Drink</h3>
+          <p>Choose from your favourite chilled bottle.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 120</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=85"
+          alt="Fresh drink">
+
+        <div class="food-info">
+          <h3>Fresh Lemon Drink</h3>
+          <p>Refreshing chilled lemon drink.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 199</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="food-card">
+        <img class="food-img"
+          src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=900&q=85"
+          alt="Iced tea">
+
+        <div class="food-info">
+          <h3>Iced Tea</h3>
+          <p>Refreshing iced tea served chilled.</p>
+
+          <div class="food-bottom">
+            <span class="price">Rs. 199</span>
+            <button class="add">Add to Order</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+  <div class="container about-grid">
+
+    <div class="about-img"></div>
+
+    <div>
+
+      <div class="tag" style="color:#e63920">
+        ABOUT CRAVE HOUSE
+      </div>
+
+      <h2>
+        Great Food.<br>
+        Good Times.
+      </h2>
+
+      <p>
+        Crave House is a modern fast-food destination serving
+        delicious burgers, pizza, shawarma, shakes, ice cream,
+        sweets and refreshing drinks.
+      </p>
+
+      <p>
+        Our goal is simple: fresh ingredients, generous portions,
+        friendly service and flavours our customers love.
+      </p>
+
+      <div class="points">
+
+        <div class="point">
+          <span>✓</span>
+          <span>Fresh ingredients</span>
+        </div>
+
+        <div class="point">
+          <span>✓</span>
+          <span>Made fresh to order</span>
+        </div>
+
+        <div class="point">
+          <span>✓</span>
+          <span>Family-friendly environment</span>
+        </div>
+
+        <div class="point">
+          <span>✓</span>
+          <span>Takeaway available</span>
+        </div>
+
+      </div>
+
+      <a href="#contact" class="btn red">
+        Contact Us
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+<section class="reviews">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>OUR CUSTOMERS</small>
+      <h2>What People Say</h2>
+      <p>Real food, happy customers.</p>
+    </div>
+
+    <div class="review-grid">
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “The burgers were amazing and the shake was
+          honestly one of the best I've had.”
+        </p>
+
+        <strong>— Hamza A.</strong>
+      </div>
+
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “Great pizza, quick service and a really nice
+          family atmosphere.”
+        </p>
+
+        <strong>— Sarah K.</strong>
+      </div>
+
+
+      <div class="review">
+        <div class="stars">★★★★★</div>
+
+        <p>
+          “The shawarma and loaded fries were delicious.
+          Definitely coming back.”
+        </p>
+
+        <strong>— Ali R.</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- LOCATION / MAP -->
+<section class="map-section" id="location">
+
+  <div class="container">
+
+    <div class="heading">
+      <small>FIND US</small>
+      <h2>Visit Crave House</h2>
+      <p>
+        Come visit us or contact us for takeaway and orders.
+      </p>
+    </div>
+
+    <div class="map-box">
+
+      <iframe
+        src="https://www.google.com/maps?q=Lahore,Pakistan&output=embed"
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="container contact-grid">
+
+    <div>
+
+      <div class="tag">GET IN TOUCH</div>
+
+      <h2>
+        Hungry?<br>
+        Let's Fix That.
+      </h2>
+
+      <p class="contact-intro">
+        Order your favourite food or contact us for
+        takeaway, reservations and general enquiries.
+      </p>
+
+      <div class="contact-info">
+
+        <p>📞 +92 300 1234567</p>
+        <p>💬 WhatsApp: +92 300 1234567</p>
+        <p>✉️ hello@cravehouse.com</p>
+        <p>📍 Lahore, Pakistan</p>
+        <p>🕐 Mon–Sun: 11:00 AM – 12:00 AM</p>
+
+      </div>
+
+    </div>
+
+
+    <div class="form">
+
+      <h3 style="font-size:25px;margin-bottom:18px">
+        Send Us a Message
+      </h3>
+
+      <form id="contactForm">
+
+        <input
+          type="text"
+          placeholder="Your Name"
+          required>
+
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          required>
+
+        <input
+          type="email"
+          placeholder="Email Address">
+
+        <textarea
+          placeholder="Your message or order enquiry..."
+          required></textarea>
+
+        <button
+          type="submit"
+          class="btn red">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container footer">
+
+    <div>
+      <strong>CraveHouse</strong>
+      <p>Fresh food. Big flavour. Good times.</p>
+    </div>
+
+    <p>
+      © 2026 Crave House. Demo Website.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<div class="toast" id="toast">
+  Added to order!
+</div>
+
+
+<script>
+
+/* =========================
+   ADD TO ORDER BUTTONS
+========================= */
+
+const buttons = document.querySelectorAll(".add");
+const toast = document.getElementById("toast");
+
+buttons.forEach(function(button){
+
+  button.addEventListener("click", function(){
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+      toast.classList.remove("show");
+    },2000);
+
+  });
+
+});
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const form = document.getElementById("contactForm");
+
+form.addEventListener("submit", function(event){
+
+  event.preventDefault();
+
+  toast.textContent = "Message submitted successfully!";
+  toast.classList.add("show");
+
+  form.reset();
+
+  setTimeout(function(){
+
+    toast.classList.remove("show");
+    toast.textContent = "Added to order!";
+
+  },2500);
+
+});
+
+
+/* =========================
+   SMOOTH SCROLL
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+
+  link.addEventListener("click", function(event){
+
+    const target = document.querySelector(
+      this.getAttribute("href")
+    );
+
+    if(target){
+
+      event.preventDefault();
+
+      target.scrollIntoView({
+        behavior:"smooth"
+      });
+
+    }
+
+  });
+
+});
+
+</script>
+
+</body>
+</html>
